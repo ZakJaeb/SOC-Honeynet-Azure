@@ -4,13 +4,13 @@
 
 <h2>Description</h2>
 In this lab I setup a vulnerable virtual machine within Microsoft Azure to act as a honeypot to capture and log security events using the Microsoft Sentinel SIEM. I used a PowerShell script and a geolocation API to map where attacks originate from.
-<br/>
+<br/><br/>
 I first setup the VM and removed all safeties by allowing all traffic in the Network Security Group. I then connected to the VM via RDP and disabled the Windows Firewall on all profiles. This allows any outside party to see the host and try to login.
-
+<br/><br/>
 To capture the failed login attempts, I used a Powershell script to pull the latitude and longitude of the attacker from a free IP Geolocation API website. The script then saves this data to a custom log file on the Windows machine.
-
+<br/><br/>
 I then ingested that custom log into a Log Analytics Workspace in Azure and created a custom query to pull any further attempts from the VM. I connected my workspace to Microsoft Sentinel and setup a custom workbook to run the query every 5 minutes and visualize the data on a Map.
-
+<br/><br/>
 Thanks to Josh Madakor for the awesome lab project: https://www.youtube.com/watch?v=RoZeVbbZ0o0
 <br />
 
